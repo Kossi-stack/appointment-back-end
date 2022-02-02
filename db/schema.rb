@@ -36,9 +36,11 @@ ActiveRecord::Schema.define(version: 2022_01_28_135046) do
     t.integer "seats"
     t.datetime "year", precision: 6
     t.bigint "industry_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["industry_id"], name: "index_cars_on_industry_id"
+    t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
   create_table "industries", force: :cascade do |t|
@@ -47,6 +49,8 @@ ActiveRecord::Schema.define(version: 2022_01_28_135046) do
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_industries_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -67,4 +71,6 @@ ActiveRecord::Schema.define(version: 2022_01_28_135046) do
   add_foreign_key "appointments", "cars"
   add_foreign_key "appointments", "users"
   add_foreign_key "cars", "industries"
+  add_foreign_key "cars", "users"
+  add_foreign_key "industries", "users"
 end
