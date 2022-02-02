@@ -27,7 +27,7 @@ Things you may want to cover:
 
 
 
-👤👤 Authors
+Authors
 
 👤 ***Kossi Fioklou***
 - Location: Togo
