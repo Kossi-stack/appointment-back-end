@@ -21,9 +21,9 @@ Rails.application.routes.draw do
     resources :industries, only: [:index, :show, :create, :destroy] do
       resources :cars, only: [:show, :create, :destroy] 
     end
-    resources :users, only: [:create, :show] do
+    resources :users, only: [:create, :show] 
       resources :appointments, only: [:create, :index]
-    end
+    
   end
 end
  
