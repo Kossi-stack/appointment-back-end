@@ -9,6 +9,7 @@ class CreateCars < ActiveRecord::Migration[7.0]
       t.integer :seats
       t.datetime :year
       t.references :industry, foreign_key: { to_table: :industries }
+      t.references :user, foreign_key: true
       t.timestamps
     end
   end
