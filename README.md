@@ -1,4 +1,3 @@
-
 # appointment-back-end
 
 # README
@@ -58,5 +57,8 @@ Acknowledgments
 This project was inspired by Microverse
 
 📝 License
+
+This project is MIT license
+
 This project is MIT license
 
