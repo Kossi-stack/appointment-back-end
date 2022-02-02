@@ -64,3 +64,5 @@ gem 'devise-jwt'
 gem 'rack-cors'
 
 gem 'jsonapi-rails'
+
+gem 'cancancan'
