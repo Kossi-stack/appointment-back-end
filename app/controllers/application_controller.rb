@@ -1,7 +1,5 @@
 class ApplicationController < ActionController::API
-
   before_action :configure_permitted_parameters, if: :devise_controller?
-
 
   rescue_from ActiveRecord::RecordNotUnique, with: :record_not_unique
 
@@ -27,11 +25,11 @@ class ApplicationController < ActionController::API
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:registration, keys: [:name, :email, :password, :password_confirmation])
-    devise_parameter_sanitizer.permit(:sign_in, keys: [:name, :email, :password])
+    devise_parameter_sanitizer.permit(:registration, keys: %i[name email password password_confirmation])
+    devise_parameter_sanitizer.permit(:sign_in, keys: %i[name email password])
   end
 
-    # before action authentication
+  # before action authentication
   def authenticate_user!
     if request.headers['Authorization'].present?
       token = request.headers['Authorization'].split.last
