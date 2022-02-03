@@ -5,6 +5,7 @@ class CreateIndustries < ActiveRecord::Migration[7.0]
       t.string :description
       t.string :image
       t.timestamps
+      t.references :user, foreign_key: true
     end
   end
 end
