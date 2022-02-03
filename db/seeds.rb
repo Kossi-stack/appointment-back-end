@@ -5,7 +5,10 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-User.create(name: "Tom", email: "tom@gmail.com", password: "123456", password_confirmation: "123456")
+# Create current_user and create appointment car for current_user
+rustam = User.create!(name: 'Rustam', email: 'rock@gmail.com', password: '123456')
+car = Car.create!(name: 'Ford', model: 'Focus', engine: '1.6', image: 'image.jpg', price: '100', seats: '5', year: '2020')
+reservation = Appointment.create!(status: 'pending', start_time: '2018-12-12 12:00:00', end_time: '2018-12-12 13:00:00', user_id: rustam.id, car_id: car.id)
 
 Industry.create(name: "Ford", description: "Ford is a multinational American automobile manufacturer headquartered in Dearborn, Michigan, a suburb of Detroit, Michigan, in the United States.", image: "https://res.cloudinary.com/dhatgaadw/image/upload/v1643284367/Cars/logos/image-2_ypinio.png")
 
@@ -16,8 +19,6 @@ Car.create(name: "Mustang", model: "Mustang", engine: "5.2L V8 GAS", seats: 4, p
 Car.create(name: "Fusion", model: "Fusion", engine: "5.2L V8 GAS", seats: 4, price: 1480, year: "2020", image: "https://res.cloudinary.com/dhatgaadw/image/upload/v1643284316/Cars/FORD/car5_qyghzy.webp", industry_id: 1)
 Car.create(name: "Fusion Hybrid", model: "Fusion Hybrid", engine: "5.2L V8 GAS", seats: 4, price: 1480, year: "2020", image: "https://res.cloudinary.com/dhatgaadw/image/upload/v1643284316/Cars/FORD/car6_cqmv3x.webp", industry_id: 1)
 
-Appointment.create(status: "pending", start_time: "2018-12-12 12:00:00", end_time: "2018-12-12 13:00:00", user_id: 1, car_id: 1)
-
 Industry.create(name: "BMW", description: "BMW is a German multinational company which produces automobiles and motorcycles. The company's market share is 0.6% of the global auto market, and it is the world's tenth largest automaker by market capitalization. BMW is headquartered in Ingolstadt, Bavaria, Germany, with its headquarters in Munich, Bavaria.", image: "https://res.cloudinary.com/dhatgaadw/image/upload/v1643284366/Cars/logos/image-3_z2575c.png")
 
 Car.create(name: "X5", model: "X5", engine: "5.2L V8 GAS", seats: 4, price: 1480, year: "2020", image: "https://res.cloudinary.com/dhatgaadw/image/upload/v1643284346/Cars/BMW/bmw3_szyvlw.webp", industry_id: 2)
@@ -27,4 +28,3 @@ Car.create(name: "X4", model: "X4", engine: "5.2L V8 GAS", seats: 4, price: 1480
 Car.create(name: "X1", model: "X1", engine: "5.2L V8 GAS", seats: 4, price: 1480, year: "2020", image: "https://res.cloudinary.com/dhatgaadw/image/upload/v1643284346/Cars/BMW/bmw4_v4hc9h.webp", industry_id: 2)
 Car.create(name: "X2", model: "X2", engine: "5.2L V8 GAS", seats: 4, price: 1480, year: "2020", image: "https://res.cloudinary.com/dhatgaadw/image/upload/v1643284346/Cars/BMW/bmw1_qiyp6o.webp", industry_id: 2)
 
-Appointment.create(status: "pending", start_time: "2018-12-12 12:00:00", end_time: "2018-12-12 13:00:00", user_id: 1, car_id: 2)

@@ -18,8 +18,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   namespace :v1 do
-    resources :industries, only: [:index, :show, :create, :destroy]
-    resources :cars, only: [:show, :create, :destroy] 
+    resources :cars, only: [:index, :show, :create, :destroy] 
+    resources :industries, only: [:index, :create, :destroy]
 
     resources :users, only: [:create, :show]
     resources :appointments, only: [:create, :index]
