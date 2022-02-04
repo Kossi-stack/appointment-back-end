@@ -4,7 +4,8 @@
 - This app is a Back-end side of final capstone project. You can find the Front-end app [here](https://github.com/elmar8287/ford-front-end/). 
 - Direct link to [Kanban board](https://github.com/Kossi-stack/appointment-back-end/projects/1) for whole capstone project
 
-[Kanban screen]('./')
+![Kanban screen](./app/assets/image/kanban.png)
+
 
 The final member number of this project is: 3!
 
