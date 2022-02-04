@@ -58,9 +58,9 @@ If you are using deployed app
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/kossi-stack/)
 
 👤***Elmar***
-- Location: 
-- GitHub: []()
-- LinkedIn: []()
+- Location: Baku, Azerbaijan
+- GitHub: [elmar8287](https://github.com/elmar8287)
+- LinkedIn: [elmar.abdulkarimov](https://www.linkedin.com/in/elmar-abdulkarimov/)
 
 👤***Rustam***
 - Location: 
