@@ -1,28 +1,53 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The final member number of this project is: 3!
 
-Things you may want to cover:
+## Built With
 
-* Ruby version
+Ruby on Rails
+Postgres
+Rspec
 
-* System dependencies
+## Getting Started
 
-* Configuration
+To get a local copy up and run the app, follow these simple example steps.
 
-* Database creation
+## Prerequisites
 
-* Database initialization
+Ruby : 3.0.1
+Rails : 7.0.1
+Postgres > 14.0
 
-* How to run the test suite
+## Setup
+Clone the repository with:
 
-* Services (job queues, cache servers, search engines, etc.)
+    git@github.com:Kossi-stack/appointment-back-end.git
 
-* Deployment instructions
+## Install
+To install all dependencies, run:
 
-* ...
+    bundle install
 
+Create database and seed the data
+
+   rails db:create
+   rails db:migrate
+   rails db:seed
+
+## Usage
+To run the server, in the project directory, run:
+
+  rails s
+
+## Endpoints
+
+If you are using the app localy
+
+{defaultHost} = http://localhost:3000
+
+If you are using deployed app
+
+{defaultHost} = https://.herokuapp.com
 
 
 👤👤 Authors
