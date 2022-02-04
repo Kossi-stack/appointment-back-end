@@ -1,35 +1,27 @@
-class Api::V1::AppointmensController < ApplicationController
-  before_action :set_appointmen, only: :destroy
-
+class Api::V1::AppointmentsController < ApplicationController
   def index
-    @appointmens = current_user.appointmens
+    @appointments = current_user.appointments
+    render json: @appointments
   end
 
   def create
-    @appointmen = current_user.appointmens.new(appointmen_params)
-
-    if @appointmen.save
-      render :create, status: :created
+    @appointment = current_user.appointments.new(appointment_params)
+    if @appointment.save
+      render json: @appointment
     else
-      render json: @appointmen.errors, status: :unprocessable_entity
+      render json: { errors: @appointment.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
   def destroy
-    if @appointmen.destroy
-      render json: { message: 'appointmen has been successfully deleted' }
-    else
-      render json: @appointmen.errors, status: :unprocessable_entity
-    end
+    @appointment = Appointment.find(params[:id])
+    @appointment.destroy
+    render json: @appointment
   end
 
   private
 
-  def set_appointmen
-    @appointmen = appointmen.find(params[:id])
-  end
-
-  def appointmen_params
-    params.require(:appointmen).permit(:status, :start_time, :end_time, :user_id, :car_id)
+  def appointment_params
+    params.require(:appointment).permit(:start_time, :end_time, :car_id)
   end
 end

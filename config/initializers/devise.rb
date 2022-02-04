@@ -10,15 +10,17 @@
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
   config.jwt do |jwt|
-    jwt.secret = 'dcf478cdc53232624ed7fb0cfa66f41e6d7942eccc905ffb249353c1386d402d827f26f2a4e626cba4d7b426268860021f6b663c01446dc2eb5a027ea94cb133'
-    jwt.expiration_time = 2.weeks.to_i
+    jwt.secret = "198b3a762c53cf298531466bb7ab017ae2f76e11892c0217240c065e233ce4fe13a3fa5b61e4a3869391f06d7fef8ddaf4f55af6250c59ecbb19bba08c4e31fa"
+	  jwt.expiration_time = 1.weeks.to_i
   end
+
+  config.navigational_formats = []
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '0a865cf9e6801d2a8f0b41f2bba285e569939c61b0c1a01b7178c2a9fffb3c22b84d398e7ee0b8b318634c5fd1592a299b3e2af91b5fb4f733ecc2f357caf05e'
+  # config.secret_key = '696c03eac5643981255f60f04ce5d83ba3881e1708187c88811ddc5d04da51283215d378c7a5c8d0d21e163b23f3c3bb5eeaabe9d4aa3279e28ee46b1797b4dc'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -130,7 +132,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '50dd1329c936345a1e95e76e213278f210d0e99dfff83467b82151095f2a379f26b5cb743ba9789ce7241f09e339855a689b192ecdad05c44eacf80dde04462a'
+  # config.pepper = '408e99dc47257d2cb8db4756ffc2abee8cb1825176c2224409c7d33bb0b93e45fbd1d4b994dbce0bf75f83e455d3bea8e1f1f1e062d3b8a65cfb294e7475fd64'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false

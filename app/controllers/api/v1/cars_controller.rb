@@ -1,35 +1,28 @@
 class Api::V1::CarsController < ApplicationController
-  before_action :set_car, only: %i[destroy show]
 
   def index
-    @cars = current_user.cars.all
+    @cars = Car.all
+    render json: @cars
   end
 
   def create
     @car = current_user.cars.new(car_params)
-
-    if @car.save!
-      render :create, status: :created
+    if @car.save
+      render json: @car
     else
-      render json: @car.errors, status: :unprocessable_entity
+      render json: { errors: @car.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
   def destroy
-    if @car.destroy
-      render json: { message: 'car has been successfully deleted' }
-    else
-      render json: @car.errors, status: :unprocessable_entity
-    end
+    @car = Car.find(params[:id])
+    @car.destroy
+    render json: @car
   end
 
   private
 
-  def set_car
-    @car = car.find(params[:id])
-  end
-
   def car_params
-    params.require(:car).permit(:name, :model, :engine, :image, :price, :seats, :year, :industry_id, :user_id)
+    params.require(:car).permit(:name, :model, :engine, :seats, :price, :image)
   end
 end

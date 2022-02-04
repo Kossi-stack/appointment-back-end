@@ -10,17 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_27_085536) do
+ActiveRecord::Schema.define(version: 2022_02_04_202902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "appointments", force: :cascade do |t|
-    t.string "status"
     t.datetime "start_time"
     t.datetime "end_time"
-    t.bigint "user_id"
-    t.bigint "car_id"
+    t.bigint "car_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["car_id"], name: "index_appointments_on_car_id"
@@ -28,35 +27,23 @@ ActiveRecord::Schema.define(version: 2022_01_27_085536) do
   end
 
   create_table "cars", force: :cascade do |t|
-    t.string "name"
     t.string "model"
-    t.string "engine"
-    t.string "image"
-    t.integer "price"
-    t.integer "seats"
-    t.datetime "year"
-    t.bigint "industry_id"
-    t.bigint "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["industry_id"], name: "index_cars_on_industry_id"
-    t.index ["user_id"], name: "index_cars_on_user_id"
-  end
-
-  create_table "industries", force: :cascade do |t|
     t.string "name"
-    t.string "description"
+    t.string "engine"
+    t.integer "seats"
+    t.integer "price"
     t.string "image"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_industries_on_user_id"
+    t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "jti", null: false
@@ -66,7 +53,5 @@ ActiveRecord::Schema.define(version: 2022_01_27_085536) do
 
   add_foreign_key "appointments", "cars"
   add_foreign_key "appointments", "users"
-  add_foreign_key "cars", "industries"
   add_foreign_key "cars", "users"
-  add_foreign_key "industries", "users"
 end
