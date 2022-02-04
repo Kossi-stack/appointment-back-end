@@ -6,9 +6,6 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 # Create current_user and create appointment car for current_user
-rustam = User.create!(name: 'Rustam', email: 'rock@gmail.com', password: '123456')
-car = Car.create!(name: 'Ford', model: 'Focus', engine: '1.6', image: 'image.jpg', price: '100', seats: '5', year: '2020')
-reservation = Appointment.create!(status: 'pending', start_time: '2018-12-12 12:00:00', end_time: '2018-12-12 13:00:00', user_id: rustam.id, car_id: car.id)
 
 Industry.create(name: "Ford", description: "Ford is a multinational American automobile manufacturer headquartered in Dearborn, Michigan, a suburb of Detroit, Michigan, in the United States.", image: "https://res.cloudinary.com/dhatgaadw/image/upload/v1643284367/Cars/logos/image-2_ypinio.png")
 

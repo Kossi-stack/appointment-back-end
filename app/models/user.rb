@@ -1,9 +1,11 @@
 class User < ApplicationRecord
-  devise :database_authenticatable, :registerable,
-         :jwt_authenticatable, jwt_revocation_strategy: JwtDenylist
+  include Devise::JWT::RevocationStrategies::JTIMatcher
 
-  has_many :appointments, dependent: :destroy
-  has_many :industries, dependent: :destroy
-  has_many :cars, dependent: :destroy
-  validates :email, uniqueness: true
+  devise :database_authenticatable, :registerable, :validatable,
+         :jwt_authenticatable, jwt_revocation_strategy: self
+
+  validates :name, presence: true, length: { maximum: 100 }
+
+  has_many :reservations, dependent: :destroy
+  has_many :rooms, dependent: :destroy
 end

@@ -1,28 +1,13 @@
-Rails.application.routes.default_url_options[:host] = 'localhost:3000'
-
-
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  devise_for :users,
-    defaults: { format: :json },
-    path: '',
-    path_names: {
-      sign_in: 'v1/login',
-      sign_out: 'v1/logout',
-      registration: 'v1/signup'
-    },
-    controllers: {
-      sessions: 'sessions',
-      registrations: 'registrations'
-    }
-  # Defines the root path route ("/")
-  # root "articles#index"
-  namespace :v1 do
-    resources :cars, only: [:index, :show, :create, :destroy] 
-    resources :industries, only: [:index, :create, :destroy]
+  mount Rswag::Ui::Engine => '/'
+  mount Rswag::Api::Engine => '/api-docs'
+  devise_for :users, defaults: { format: :json }, path: 'users',
+                     path_names: { sign_in: 'login', sign_out: 'logout', registration: 'signup' }
 
-    resources :users, only: [:create, :show]
-    resources :appointments, only: [:create, :index]
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :cars, only: %i[index create destroy]
+      resources :appointments, only: %i[index create destroy]
+    end
   end
 end
- 
