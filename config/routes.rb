@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     sign_out: 'signout', 
     registration: 'signup' }
 
+  get '/members', to: 'members#show'
+
+
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :cars, only: [:index, :create, :destroy]
